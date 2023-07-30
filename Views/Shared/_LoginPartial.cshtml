@@ -2,25 +2,58 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
-}
-</ul>
+  
+    @*@{
+        List<Item> model = (List<Item>)ViewBag.cart;
+        int brojArtikala = 0;
+    }
+
+    @if (model != null)
+    {
+         brojArtikala = model.Count();
+    }*@
+   
+
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+
+            @if (User.IsInRole("Korisnik"))
+            {
+                <li class="nav-item">
+                    <a style="color: #0069d9 !important;" class="nav-link text-dark" asp-controller="korpa" asp-action="index">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <circle cx="6" cy="19" r="2"></circle>
+                            <circle cx="17" cy="19" r="2"></circle>
+                            <path d="M17 17h-11v-14h-2"></path>
+                            <path d="M6 5l14 1l-1 7h-13"></path>
+                        </svg>
+                    </a>
+                </li>
+            }
+
+            <li class="nav-item">
+                <a style="color:midnightblue !important;" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"> @User.Identity.Name</a>
+            </li>
+
+            <li class="nav-item">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">@localizer["Logout"]</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">@localizer["Register"]</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">@localizer["Login"]</a>
+            </li>
+        }
+    </ul>

@@ -3,8 +3,10 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<h2>Izmeni</h2>
-<h4>Proizvodi</h4>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+<h2>@localizer["Edit"]</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,6 +17,11 @@
                 <label asp-for="Naziv" class="control-label"></label>
                 <input asp-for="Naziv" class="form-control" />
                 <span asp-validation-for="Naziv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Izdavac" class="control-label"></label>
@@ -42,13 +49,13 @@
                 <span asp-validation-for="Slika" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <button type="submit" value="Save" class="btn btn-default">@localizer["Sacuvaj"]</button>
             </div>
         </form>
     </div>
 </div>
 <div>
-    <a asp-action="ProizvodView">Back to List</a>
+    <a asp-action="ProizvodView">@localizer["NazadNaListu"]</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

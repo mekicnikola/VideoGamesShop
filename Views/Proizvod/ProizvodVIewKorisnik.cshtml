@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ProjekatNapredniWeb.Models.Proizvod>
+@{
+    ViewData["Title"] = "ProizvodVIewKorisnik";
+}
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <div class="input-group rounded">
+        <input type="search" name="pretraga" id="pretraga" class="form-control rounded" placeholder="@localizer["Pretrazi"]..." ng-model="searchKeyword.Naziv" />&nbsp
+    </div>
+
+    <br>
+
+    @localizer["Platforma"]: <select class="selectpicker" ng-model="searchKeyword.Platforma">
+        <option style="font-weight:bold;">PC</option>
+        <optgroup label="PlayStation">
+            <option>PS3</option>
+            <option>PS4</option>
+            <option>PS5</option>
+        </optgroup>
+        <optgroup label="Xbox">
+            <option>XBOX ONE</option>
+        </optgroup>
+    </select>
+    <button id="selectPonisti" type="submit" onClick="refreshPage()">@localizer["PonistiIzbor"]</button>
+
+
+
+
+    @if (TempData["Message"] != null)
+    {
+        <div><label style="color:lawngreen">@localizer["ArtikalDodat"]</label></div>
+    }
+    @if (TempData["Poruka"] != null)
+    {
+        <div><label style="color:lawngreen">@localizer["UspesnaKupovina"]</label></div>
+    }
+    @if (TempData["UspesnaPoruka"] != null)
+    {
+        <div><label style="color:lawngreen">@localizer["UspesnoPoslataPoruka"]</label></div>
+    }
+    
+
+    <div class='products-list'>
+        <div class="card" ng-repeat="x in records | filter:searchKeyword:strict">
+            <div class='overlay1'>
+                <a id='saznajVise' href="/Proizvod/DetailsKorisnik/{{x.Id}}">@localizer["Details"]</a>
+            </div>
+            <img src="/images/{{ x.Slika }}" style="width:100%" />
+            <h1>{{ x.Naziv }}</h1>
+            <p class="price">{{ x.Cena }} RSD</p>
+            <p><strong>@localizer["Izdavac"]: </strong>{{ x.Izdavac}}</p>
+            <p><strong>@localizer["Zanr"]: </strong> {{ x.Zanr}}</p>
+            <p><strong>@localizer["Platforma"]: </strong>{{ x.Platforma}}</p><br>
+            <a id="dodajUKorpu" href="/Korpa/Buy/{{x.Id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="6" cy="19" r="2"></circle>
+                    <circle cx="17" cy="19" r="2"></circle>
+                    <path d="M17 17h-11v-14h-2"></path>
+                    <path d="M6 5l6.005 .429m7.138 6.573l-.143 .998h-13"></path>
+                    <path d="M15 6h6m-3 -3v6"></path>
+                </svg> @localizer["AddToCart"]
+            </a>
+        </div>
+
+    </div>
+
+    <script>
+            var app = angular.module("myApp", []);
+            app.controller("myCtrl", function ($scope) {
+                $scope.records =@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+            });
+
+        function refreshPage() {
+            window.location.reload();
+        }
+    </script>
+</body>

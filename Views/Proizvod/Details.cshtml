@@ -3,9 +3,13 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h2>Details</h2>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+<h2>@Html.DisplayFor(model => model.Naziv)</h2>
+
+<h2>@localizer["Edit"]</h2>
+
 <div>
-    <h4>Employees</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -13,6 +17,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Izdavac)
@@ -39,14 +49,14 @@
             @Html.DisplayFor(model => model.DatumIzlaska)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Slika)
+
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Slika)
+            <img style="height: 150px; width: auto;" src="/images/@Html.DisplayFor(model => model.Slika)" />
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="ProizvodView">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@localizer["Edit"]</a> |
+    <a asp-action="ProizvodView">@localizer["NazadNaListu"]</a>
 </div>

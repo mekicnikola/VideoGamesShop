@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ProjekatNapredniWeb.Models.Poruka>
+@{
+    ViewData["Title"] = "PorukaVIew";
+}
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+<div class="products-list">
+
+    @foreach (var item in Model)
+    {
+    <div class="card">
+        <p><strong>@localizer["ImePrezime"]: </strong>@Html.DisplayFor(modelItem => item.ImePrezime)</p>
+        <p><strong>@localizer["Email"]: </strong>@Html.DisplayFor(modelItem => item.Email)</p>
+        <p><strong>@localizer["DatumIzdavanja"]: </strong>@Html.DisplayFor(modelItem => item.Datum.Day). @Html.DisplayFor(modelItem => item.Datum.Month). @Html.DisplayFor(modelItem => item.Datum.Year).</p>
+        <p><strong>@localizer["Poruka"]: </strong>@Html.DisplayFor(modelItem => item.PorukaSadrzaj)</p>
+        <a style='font-size:15px; text-decoration:none; color:rgba(215, 255, 0, 1);' href='mailto: @item.Email ?subject=NM | Odgovor na poruku: @item.Id | @item.ImePrezime &body=Poštovani,%0D%0A%0D%0A%0D%0AS poštovanjem, .' target='_blank' rel='noopener noreferrer'>@localizer["Odgovori"]</a>
+    </div>
+    }
+</div>
+

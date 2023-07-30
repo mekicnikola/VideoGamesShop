@@ -3,62 +3,154 @@
 @{
     ViewData["Title"] = "ProizvodView";
 }
-<h2>View</h2>
-<p>
-    <a asp-action="Create">Ubaci novog</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Naziv)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Izdavac)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Zanr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Platforma)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatumIzlaska)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slika)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Naziv)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Izdavac)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Zanr)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Platforma)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DatumIzlaska)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Slika)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+
+    <h2>@localizer["Products"]</h2>
+    <p>
+       <a asp-action="Create">@localizer["InsertNewProduct"]</a>
+    </p>
+    <body ng-app="myApp" ng-controller="myCtrl">
+
+        @*<button onclick="prikaziNaKlik()">@localizer["InsertNewProduct"]</button>
+
+        <div style="display:none;" id="myDIV">
+            <ng-include src="'@Url.Action("Create", "Proizvod")'"></ng-include>
+        </div>*@
+
+
+        
+        <div class="input-group rounded">
+            <input type="search" name="pretraga" id="pretraga" class="form-control rounded" placeholder="@localizer["Pretrazi"]..." ng-model="searchKeyword" />&nbsp
+        </div>
+
+        @*<input type="radio" ng-model="myVar" value="Naziv" />Naziv
+        <input type="radio" ng-model="myVar" value="Cena" />Cena
+        <input type="radio" ng-model="myVar" value="Zanr" />Zanr
+
+        <div ng-switch="myVar">
+            <div ng-switch-when="Naziv">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>@localizer["Naziv"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in records">
+                            <td>{{x.Naziv}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-switch-when="Cena">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> @localizer["Cena"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in records">
+                            <td>{{x.Cena}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-switch-when="Zanr">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> @localizer["Zanr"]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in records">
+                            <td>{{x.Zanr}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>*@
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @localizer["Naziv"]
+                    </th>
+                    <th>
+                        @localizer["Cena"]
+                    </th>
+                    <th>
+                        @localizer["Izdavac"]
+                    </th>
+                    <th>
+                        @localizer["Zanr"]
+                    </th>
+                    <th>
+                        @localizer["Platforma"]
+                    </th>
+                    <th>
+                        @localizer["DatumIzlaska"]
+                    </th>
+                    <th>
+
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="x in records | filter:searchKeyword">
+                    <td>
+                        {{ x.Naziv }}
+                    </td>
+                    <td>
+                        {{ x.Cena }}
+                    </td>
+                    <td>
+                        {{ x.Izdavac}}
+                    </td>
+                    <td>
+                        {{ x.Zanr}}
+                    </td>
+                    <td>
+                        {{ x.Platforma}}
+                    </td>
+                    <td>
+                        {{ x.DatumIzlaska | date:'dd. MM. yyyy.'}}
+                    </td>
+                    <td>
+                        <img style="height: 50px; width: auto;" src="/images/{{ x.Slika}}" />
+                    </td>
+                    <td>
+                        <a href="/Proizvod/Edit/{{x.Id}}">@localizer["Edit"]</a> |
+                        <a href="/Proizvod/Details/{{x.Id}}">@localizer["Details"]</a> |
+                        <a href="/Proizvod/Delete/{{x.Id}}">@localizer["Delete"]</a>
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+        <script>
+            var app = angular.module("myApp", []);
+            app.controller("myCtrl", function ($scope) {
+                $scope.records =@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+            });
+
+            //function prikaziNaKlik() {
+            //    var x = document.getElementById("myDIV");
+            //    if (x.style.display === "none") {
+            //        x.style.display = "block";
+            //    } else {
+            //        x.style.display = "none";
+            //    }
+            //}
+        </script>
+    </body>

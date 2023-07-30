@@ -3,52 +3,63 @@
 @{
     ViewData["Title"] = "Create";
 }
-<h2>Ubaci novog</h2>
-<h4>Proizvodi</h4>
+
+@*@{
+    Layout = null;
+}*@
+
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+<h2>Insert new product</h2>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Naziv" class="control-label"></label>
-                <input asp-for="Naziv" class="form-control" />
-                <span asp-validation-for="Naziv" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Izdavac" class="control-label"></label>
-                <input asp-for="Izdavac" class="form-control" />
-                <span asp-validation-for="Izdavac" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Zanr" class="control-label"></label>
-                <input asp-for="Zanr" class="form-control" />
-                <span asp-validation-for="Zanr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Platforma" class="control-label"></label>
-                <input asp-for="Platforma" class="form-control" />
-                <span asp-validation-for="Platforma" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DatumIzlaska" class="control-label"></label>
-                <input type="date" asp-for="DatumIzlaska" class="form-control" />
-                <span asp-validation-for="DatumIzlaska" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Slika" class="control-label"></label>
-                <input asp-for="Slika" class="form-control" />
-                <span asp-validation-for="Slika" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Ubaci" class="btn btn-default" />
-            </div>
-        </form>
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Naziv" class="control-label"></label>
+                    <input asp-for="Naziv" class="form-control" required/>
+                    <span asp-validation-for="Naziv" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Cena" class="control-label"></label>
+                    <input asp-for="Cena" class="form-control" required/>
+                    <span asp-validation-for="Cena" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Izdavac" class="control-label"></label>
+                    <input asp-for="Izdavac" class="form-control" required/>
+                    <span asp-validation-for="Izdavac" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zanr" class="control-label"></label>
+                    <input asp-for="Zanr" class="form-control" required/>
+                    <span asp-validation-for="Zanr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Platforma" class="control-label"></label>
+                    <input asp-for="Platforma" class="form-control" required/>
+                    <span asp-validation-for="Platforma" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DatumIzlaska" class="control-label"></label>
+                    <input type="date" asp-for="DatumIzlaska" class="form-control" required/>
+                    <span asp-validation-for="DatumIzlaska" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Slika" class="control-label"></label>
+                    <input style="border:none" type="file" name="uploadFile" class="form-control" required/>
+                    <input type="hidden" asp-for="Slika" value="slika" />
+                    <span asp-validation-for="Slika" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">@localizer["Ubaci"]</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-<div>
-    <a asp-action="ProizvodView">Back to List</a>
-</div>
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    <div>
+        <a asp-action="ProizvodView">@localizer["NazadNaListu"]</a>
+    </div>
+</body>

@@ -1,0 +1,69 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+@model ProjekatNapredniWeb.Models.Order
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h3>@localizer["Korpa"]</h3>
+
+    <table class="table">
+
+        @if (ViewBag.cart != null)
+        {
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Id</th>
+                <th>@localizer["Naziv"]</th>
+                <th>@localizer["Cena"]</th>
+                <th>@localizer["Kolicina"]</th>
+                <th>@localizer["Ukupno"]</th>
+            </tr>
+            @foreach (var item in ViewBag.cart)
+            {
+                <tr>
+                    <td><a asp-controller="korpa" asp-action="remove" asp-route-id="@item.Proizvod.Id">@localizer["Ukloni"]</a></td>
+                    <td><img src="~/images/@item.Proizvod.Slika" width="60" /> </td>
+                    <td>@item.Proizvod.Id</td>
+                    <td>@item.Proizvod.Naziv</td>
+                    <td>@item.Proizvod.Cena</td>
+                    <td>@item.Kolicina</td>
+                    <td>@(item.Proizvod.Cena * item.Kolicina)</td>
+                </tr>
+            }
+             <tr>
+            <td align="right" colspan="6">@localizer["Suma"]</td>
+            <td>
+                @ViewBag.total
+            </td>
+        </tr>
+        }
+
+
+
+    </table>
+    <br>
+    <a asp-controller="proizvod" asp-action="proizvodViewKorisnik">@localizer["NastaviKupovinu"]</a>
+    <br>
+    <form asp-controller="korpa" asp-action="KreirajOrder" method="post">
+        @if (ViewBag.cart != null)
+        {
+            <label asp-for="ImePrezime" class="control-label">@localizer["ImePrezime"]</label>
+            <input asp-for="ImePrezime" class="form-control" required/>
+
+            <label asp-for="Adresa" class="control-label">@localizer["Adresa"]</label>
+            <input asp-for="Adresa" class="form-control" required/>
+
+            <input type="hidden" asp-for="Suma" value="@ViewBag.total"/>
+            <br>
+            <button type="submit">@localizer["Kupi"]</button>
+        }
+    </form>
+
+</body>
+</html>

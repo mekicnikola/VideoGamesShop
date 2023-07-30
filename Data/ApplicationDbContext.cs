@@ -29,25 +29,29 @@ namespace ProjekatNapredniWeb.Data
 
                 entity.Property(e => e.Naziv)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Cena)
+                    .IsRequired();
+                    
 
                 entity.Property(e => e.Izdavac)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Zanr)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.Platforma)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.DatumIzlaska).HasColumnType("date");
 
                 entity.Property(e => e.Slika)
                     .IsRequired()
-                    .HasMaxLength(20);
+                    .HasMaxLength(50);
 
             });
             base.OnModelCreating(modelBuilder);

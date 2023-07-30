@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddToCart" xml:space="preserve">
+    <value>Dodaj u korpu</value>
+  </data>
+  <data name="Adresa" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="ArtikalDodat" xml:space="preserve">
+    <value>Artikal je dodat u korpu!</value>
+  </data>
+  <data name="Cena" xml:space="preserve">
+    <value>Cena</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Potvrdi lozinku</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Kontaktirajte nas</value>
+  </data>
+  <data name="DatumIzdavanja" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="DatumIzlaska" xml:space="preserve">
+    <value>Datum izlaska</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Izmeni</value>
+  </data>
+  <data name="GamingShop" xml:space="preserve">
+    <value>Prodavnica igara</value>
+  </data>
+  <data name="HomeHeroNaslov" xml:space="preserve">
+    <value>PlayStation ekskluzive dolaze na PC</value>
+  </data>
+  <data name="HomeHeroOpis" xml:space="preserve">
+    <value>Ideja igranja PS4 i PS5 igara na računaru je svakim danom sve realnija, zahvaljujući servisima i promenama u industriji video igara.</value>
+  </data>
+  <data name="ImePrezime" xml:space="preserve">
+    <value>Ime i prezime</value>
+  </data>
+  <data name="InsertNewProduct" xml:space="preserve">
+    <value>Unesi novi proizvod</value>
+  </data>
+  <data name="Izdavac" xml:space="preserve">
+    <value>Izdavač</value>
+  </data>
+  <data name="Kolicina" xml:space="preserve">
+    <value>Količina</value>
+  </data>
+  <data name="Korpa" xml:space="preserve">
+    <value>Korpa</value>
+  </data>
+  <data name="Kupi" xml:space="preserve">
+    <value>Kupi</value>
+  </data>
+  <data name="LearnMore" xml:space="preserve">
+    <value>Saznaj više</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Uloguj se</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Odjavi se</value>
+  </data>
+  <data name="LoremIpsum" xml:space="preserve">
+    <value>Lorem Ipsum je jednostavno model teksta koji se koristi u štamparskoj i slovoslagačkoj industriji. Lorem ipsum je bio standard za model teksta još od 1500. godine, kada je nepoznati štampar uzeo kutiju sa slovima i složio ih kako bi napravio uzorak knjige. Ne samo što je ovaj model opstao pet vekova, nego je čak počeo da se koristi i u elektronskim medijima, nepromenivši se. Popularizovan je šezdesetih godina dvadesetog veka zajedno sa listovima leterseta koji su sadržali Lorem Ipsum pasuse, a danas sa softverskim paketom za prelom kao što je Aldus PageMaker koji je sadržao Lorem Ipsum verzije.</value>
+  </data>
+  <data name="NastaviKupovinu" xml:space="preserve">
+    <value>Nastavi kupovinu</value>
+  </data>
+  <data name="NazadNaListu" xml:space="preserve">
+    <value>Nazad na listu</value>
+  </data>
+  <data name="Naziv" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="Odgovori" xml:space="preserve">
+    <value>Odgovori</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Lozinka</value>
+  </data>
+  <data name="Platforma" xml:space="preserve">
+    <value>Platforma</value>
+  </data>
+  <data name="PonistiIzbor" xml:space="preserve">
+    <value>Poništi izbor</value>
+  </data>
+  <data name="Porudzbine" xml:space="preserve">
+    <value>Porudžbine</value>
+  </data>
+  <data name="Poruka" xml:space="preserve">
+    <value>Poruka</value>
+  </data>
+  <data name="Poruke" xml:space="preserve">
+    <value>Poruke</value>
+  </data>
+  <data name="Posalji" xml:space="preserve">
+    <value>Pošalji</value>
+  </data>
+  <data name="Pretrazi" xml:space="preserve">
+    <value>Pretraži</value>
+  </data>
+  <data name="Privacy" xml:space="preserve">
+    <value>Politika privatnosti</value>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>Proizvodi</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="Sacuvaj" xml:space="preserve">
+    <value>Sačuvaj</value>
+  </data>
+  <data name="ShopNow" xml:space="preserve">
+    <value>Započni!</value>
+  </data>
+  <data name="Slika" xml:space="preserve">
+    <value>Slika</value>
+  </data>
+  <data name="Suma" xml:space="preserve">
+    <value>Suma</value>
+  </data>
+  <data name="Ubaci" xml:space="preserve">
+    <value>Ubaci</value>
+  </data>
+  <data name="Ukloni" xml:space="preserve">
+    <value>Ukloni</value>
+  </data>
+  <data name="Ukupno" xml:space="preserve">
+    <value>Ukupno</value>
+  </data>
+  <data name="UspesnaKupovina" xml:space="preserve">
+    <value>Uspešno ste poručili proizvode!</value>
+  </data>
+  <data name="UspesnoPoslataPoruka" xml:space="preserve">
+    <value>Poruka je uspešno poslata</value>
+  </data>
+  <data name="Zanr" xml:space="preserve">
+    <value>Žanr</value>
+  </data>
+  <data name="zastavica" xml:space="preserve">
+    <value>zastavica</value>
+  </data>
+</root>

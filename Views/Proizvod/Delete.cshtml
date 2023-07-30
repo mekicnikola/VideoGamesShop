@@ -3,10 +3,11 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<h2>Brisanje</h2>
-<h3>Da li ste sigurni da želite da obrišete proizvod?</h3>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+<h2>@localizer["Delete"]</h2>
 <div>
-    <h4>Proizvodi</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -14,6 +15,12 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Cena)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Izdavac)
@@ -49,7 +56,7 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="ProizvodView">Back to List</a>
+        <button type="submit" class="btn btn-default">@localizer["Delete"]</button> |
+        <a asp-action="ProizvodView">@localizer["NazadNaListu"]</a>
     </form>
 </div>

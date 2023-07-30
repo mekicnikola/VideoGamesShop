@@ -1,0 +1,34 @@
+﻿@model IEnumerable<ProjekatNapredniWeb.Models.Order>
+@{
+    ViewData["Title"] = "OrderView";
+}
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IHtmlLocalizer<Resource> localizer
+
+<h1>@localizer["Porudzbine"]</h1>
+
+<div class="products-list">
+
+    @foreach (var item in Model)
+    {
+    <div class="card">
+        <p><strong>@localizer["ImePrezime"]: </strong>@Html.DisplayFor(modelItem => item.ImePrezime)</p>
+        <p><strong>@localizer["Adresa"]: </strong>@Html.DisplayFor(modelItem => item.Adresa)</p>
+        <p><strong>@localizer["DatumIzdavanja"]: </strong>@Html.DisplayFor(modelItem => item.DatumIzdavanja.Day). @Html.DisplayFor(modelItem => item.DatumIzdavanja.Month). @Html.DisplayFor(modelItem => item.DatumIzdavanja.Year).</p>
+        <p><strong>@localizer["Suma"]: </strong>@Html.DisplayFor(modelItem => item.Suma)</p>
+        <div style="border-top:1px solid white;">
+            <p><strong>@localizer["Products"]: </strong></p>
+            @if (ViewData["Itemi"] != null)
+            {
+                @foreach (var i in ViewData["Itemi"] as List<Item>)
+                {
+                    if (i.Order.Id == item.Id)
+                    {
+                        <p><strong>ID</strong>: @i.Proizvod.Id, <strong>@localizer["Kolicina"]</strong> @i.Kolicina</p>
+                    }
+                }
+            }
+        </div>
+    </div>
+    }
+</div>
