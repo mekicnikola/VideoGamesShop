@@ -1,0 +1,55 @@
+﻿@model ProjekatNapredniWeb.Models.Proizvod
+
+@{
+    ViewData["Title"] = "Delete";
+}
+<h2>Brisanje</h2>
+<h3>Da li ste sigurni da želite da obrišete proizvod?</h3>
+<div>
+    <h4>Proizvodi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Izdavac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Izdavac)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zanr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zanr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Platforma)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Platforma)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumIzlaska)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatumIzlaska)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Slika)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slika)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="ProizvodView">Back to List</a>
+    </form>
+</div>

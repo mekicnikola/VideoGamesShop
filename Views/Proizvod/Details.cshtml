@@ -1,0 +1,52 @@
+﻿@model ProjekatNapredniWeb.Models.Proizvod
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h2>Details</h2>
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naziv)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Naziv)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Izdavac)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Izdavac)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Zanr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Zanr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Platforma)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Platforma)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumIzlaska)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DatumIzlaska)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Slika)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Slika)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="ProizvodView">Back to List</a>
+</div>

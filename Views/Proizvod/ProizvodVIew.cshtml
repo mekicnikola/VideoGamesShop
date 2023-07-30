@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProjekatNapredniWeb.Models.Proizvod>
+
+@{
+    ViewData["Title"] = "ProizvodView";
+}
+<h2>View</h2>
+<p>
+    <a asp-action="Create">Ubaci novog</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Naziv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Izdavac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Zanr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Platforma)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumIzlaska)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Slika)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Naziv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Izdavac)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Zanr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Platforma)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumIzlaska)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Slika)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
