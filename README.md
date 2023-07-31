@@ -1,7 +1,7 @@
 <h1 align="center">Video Games Shop</h1>
 
 <p align="center">
-  School project - <strong> C# ASP.NET Core MVC </strong> fully functional Web shop with <strong>  SQL Server database </strong>, 3 roles and 2 languages
+  School project - <strong> C# ASP.NET Core MVC </strong> fully functional Web shop with <strong>  SQL Server database </strong>, shopping cart, 3 roles and 2 languages
 </p>
 
 <p align="center">
